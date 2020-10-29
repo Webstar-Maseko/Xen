@@ -1,0 +1,51 @@
+body{
+  margin: 0;
+  color:black;
+  line-height: 2;
+  font-family: 'Quattrocento Sans', sans-serif;
+
+}
+
+.land{
+  height: 650px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("/images/volvo.jpg");
+  background-position: center;
+  color: white;
+  padding-top: 20%;
+}
+.landS{
+  height: 650px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("/images/service.jpg");
+  background-position: center;
+  color: white;
+  padding-top: 20%;
+}
+.landA{
+  height: 650px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("/images/us.jpg");
+  background-position: center ;
+  color: white;
+  padding-top: 20%;
+}
+.landC{
+  height: 650px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("/images/cont.jpg");
+  background-position: bottom ;
+  color: white;
+  padding-top: 20%;
+}
+.footer{
+  margin-bottom: 0;
+  background-color: grey;
+}
+h1{
+  font-size: 5rem;
+  font-weight: 500;
+}
+.pic{
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  border-color: red;
+  border-style: double;
+}
