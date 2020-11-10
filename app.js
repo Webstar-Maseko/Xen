@@ -65,7 +65,7 @@ app.get("/contact", function(req,res){
 });
 
 app.get('/crawl', function(req,res){
-  Item.find({}, function(err,data){
+  Item.find({title:/car/}, function(err,data){
     if(err){
       console.log(err);
     }
