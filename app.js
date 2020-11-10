@@ -6,8 +6,6 @@ const app = exp();
 app.use(exp.static("static"));
 app.set("view engine", "ejs");
 
-
-
 app.get("/", function(req,res){
   res.render("index");
 });
