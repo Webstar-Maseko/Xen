@@ -1,6 +1,51 @@
 //jshint esversion:6
-
+require("dotenv").config();
 const exp = require('express');
+const mongoose = require('mongoose')
+const crawler = require('crawler');
+
+console.log(process.env.connString);
+mongoose.connect(""+process.env.connString+"", {useNewUrlParser:true, useUnifiedTopology:true});
+
+const itemSchema = {
+  title : String,
+  link: String
+};
+
+
+const Item = new mongoose.model("Item", itemSchema);
+
+let crawl = new crawler({
+  maxConnections :  10,
+  callback : function(err, res, done){
+    if(err){
+      console.log(err);
+    }else{
+      let $ = res.$;
+      console.log(res.options.parameter1);
+
+      $(".related-ad-title").each(function(i, element){
+        title = element.children;
+        if(title.length === 0){
+
+        }
+        else{
+          const data = new Item({
+            title : $(element).text(),
+            link : element.attribs.href
+          });
+
+        }
+
+      });
+
+    }
+    done();
+  }
+
+});
+
+crawl.queue("https://www.gumtree.co.za/s-western-cape/cheap+car+rental/v1l3100001q0p1" );
 
 const app = exp();
 app.use(exp.static("static"));
@@ -17,6 +62,18 @@ app.get("/services", function(req,res){
 });
 app.get("/contact", function(req,res){
     res.render("contact");
+});
+
+app.get('/crawl', function(req,res){
+  Item.find({}, function(err,data){
+    if(err){
+      console.log(err);
+    }
+    else{
+        res.render('crawl',{data:data})
+    }
+  });
+
 });
 
 app.listen(process.env.PORT || 3000, function(){
