@@ -43,8 +43,8 @@ h1{
   font-weight: 500;
 }
 .pic{
-  height: 400px;
-  width: 400px;
+  height: 300px;
+  width: 300px;
   border-radius: 50%;
   border-color: red;
   border-style: double;

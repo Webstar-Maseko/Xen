@@ -4,7 +4,6 @@ const exp = require('express');
 const mongoose = require('mongoose')
 const crawler = require('crawler');
 
-console.log(process.env.connString);
 mongoose.connect(""+process.env.connString+"", {useNewUrlParser:true, useUnifiedTopology:true});
 
 const itemSchema = {
@@ -14,7 +13,7 @@ const itemSchema = {
 
 
 const Item = new mongoose.model("Item", itemSchema);
-
+let data ="";
 let crawl = new crawler({
   maxConnections :  10,
   callback : function(err, res, done){
@@ -22,7 +21,7 @@ let crawl = new crawler({
       console.log(err);
     }else{
       let $ = res.$;
-      console.log(res.options.parameter1);
+
 
       $(".related-ad-title").each(function(i, element){
         title = element.children;
@@ -30,7 +29,7 @@ let crawl = new crawler({
 
         }
         else{
-          const data = new Item({
+          data = new Item({
             title : $(element).text(),
             link : element.attribs.href
           });

@@ -1,11 +1,14 @@
 <%- include("Partials/header.ejs") -%>
-<div class="container">
-  <div class="">
+<div class="container-fluid">
+  <div class="row pt-5 pb-5">
     <% data.forEach(function(eleme){ %>
+      <div class="col-md-4">
+        <<img src="/images/re.png" style="width:70%; height:50%;" alt="">
         <h3><%=eleme.title %></h3>
         <a href="https://www.gumtree.co.za/<%=eleme.link%> ">Read more</a>
 
-    <%});%>
+      </div>
+  <%});%>
 
   </div>
 
