@@ -1,9 +1,12 @@
-body{
+*{
   margin: 0;
+}
+
+
+body{
   color:black;
   line-height: 2;
   font-family: 'Quattrocento Sans', sans-serif;
-
 }
 
 .land{
@@ -34,9 +37,14 @@ body{
   color: white;
   padding-top: 20%;
 }
-.footer{
-  margin-bottom: 0;
-  background-color: grey;
+
+footer{
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  height: 2.5rem;
+  background-color:#222831;
+  color: #dd9866;
 }
 h1{
   font-size: 5rem;
